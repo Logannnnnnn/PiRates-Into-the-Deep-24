@@ -6,6 +6,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.hardware.Servo;
 
 
 @TeleOp
@@ -18,14 +19,30 @@ public class driveCode extends LinearOpMode {
         DcMotor motorFrontLeft = hardwareMap.dcMotor.get("motorFrontLeft"); // input 2
         DcMotor motorBackLeft = hardwareMap.dcMotor.get("motorBackLeft");  // input 3
 
+        DcMotor motorOutakeLiftOne = hardwareMap.dcMotor.get("motorOutakeLiftOne"); // ex input 0
+        DcMotor motorOutakeLiftTwo = hardwareMap.dcMotor.get("motorOutakeLiftTwo"); // ex input 1
+        DcMotor motorIntakeExtendOne = hardwareMap.dcMotor.get("motorIntakeExtendOne"); // ex input 2
+        DcMotor motorIntakeExtendTwo = hardwareMap.dcMotor.get("motorIntakeExtendTwo"); // ex input 3
+
+        Servo servoIntakeGrab = hardwareMap.servo.get("servoIntakeGrab"); // servo ex 0
+        Servo servoIntakeRotate = hardwareMap.servo.get("servoIntakeRotate"); // servo ex 1
+        Servo servoOutakeRotateOne = hardwareMap.servo.get("servoOutakeRotateOne"); // servo 0
+        Servo servoOutakeRotateTwo = hardwareMap.servo.get("servoOutakerRotateTwo"); // servo 1
+        Servo servoOutakeGrab = hardwareMap.servo.get("servoOutakeGrab"); // servo 2
+        Servo servoOutakeSpin = hardwareMap.servo.get("servoOutakesPIN"); // servo 3
+
         motorBackRight.setDirection(DcMotorSimple.Direction.REVERSE);
         motorFrontRight.setDirection(DcMotorSimple.Direction.REVERSE);
-
 
         motorFrontLeft.setZeroPowerBehavior(BRAKE);
         motorFrontRight.setZeroPowerBehavior(BRAKE);
         motorBackLeft.setZeroPowerBehavior(BRAKE);
         motorBackRight.setZeroPowerBehavior(BRAKE);
+
+        motorOutakeLiftOne.setZeroPowerBehavior(BRAKE);
+        motorOutakeLiftTwo.setZeroPowerBehavior(BRAKE);
+        motorIntakeExtendOne.setZeroPowerBehavior(BRAKE);
+        motorIntakeExtendTwo.setZeroPowerBehavior(BRAKE);
 
         waitForStart();
 
@@ -47,6 +64,91 @@ public class driveCode extends LinearOpMode {
             motorBackLeft.setPower(backLeftPower);
             motorFrontRight.setPower(frontRightPower);
             motorBackRight.setPower(backRightPower);
+
+
+            double extenderPowerOut = (gamepad2.right_trigger);
+            if (gamepad2.right_trigger > 0.01) {
+                motorIntakeExtendOne.setPower(extenderPowerOut);
+                motorIntakeExtendTwo.setPower(extenderPowerOut);
+            } else {
+                motorIntakeExtendOne.setPower(0);
+                motorIntakeExtendTwo.setPower(0);
+            }
+            double extenderPowerIn = (gamepad2.left_trigger);
+            if (gamepad2.left_trigger > 0.01) {
+                motorIntakeExtendOne.setPower(-extenderPowerIn);
+                motorIntakeExtendTwo.setPower(-extenderPowerIn);
+            } else {
+                motorIntakeExtendOne.setPower(0);
+                motorIntakeExtendTwo.setPower(0);
+            }
+
+            if (gamepad2.left_bumper) {
+                while (gamepad2.left_bumper) {
+                    double position = servoIntakeRotate.getPosition();
+                    servoIntakeRotate.setPosition(position - 0.05) && servoIntakeRotate.setPosition(position - 0.05);
+                }
+            } else {
+                servoIntakeRotate.setPosition(0);
+            }
+
+            if (gamepad2.right_bumper) {
+                while (gamepad2.right_bumper) {
+                    double position = servoIntakeRotate.getPosition();
+                    servoIntakeRotate.setPosition(position + 0.05) && servoIntakeRotate.setPosition(position + 0.05);
+                }
+            } else {
+                servoIntakeRotate.setPosition(0);
+            }
+
+
+
+
+
+            double outakeLiftPower = gamepad2.left_stick_y;
+            if (gamepad2.right_stick_y > 0.1 || gamepad2.right_stick_y < -0.1) {
+                motorOutakeLiftOne.setPower(outakeLiftPower);
+                motorOutakeLiftTwo.setPower(outakeLiftPower);
+            } else {
+                motorOutakeLiftOne.setPower(0);
+                motorOutakeLiftTwo.setPower(0);
+            }
+
+            if (gamepad2.dpad_up) {
+                while (gamepad2.dpad_up) {
+                    double position = servoOutakeRotateOne.getPosition();
+                    double position = servoOutakeRotateTwo.getPosition();
+                    servoOutakeRotateOne.setPosition(position + 0.05) && servoOutakeRotateTwo.setPosition(position + 0.05);
+                }
+            } else {
+                servoOutakeRotateOne.setPosition(0) && servoOutakeRotateTwo.setPosition(0);
+            }
+
+            if (gamepad2.dpad_up) {
+                while (gamepad2.dpad_down) {
+                    double position = servoOutakeRotateOne.getPosition();
+                    double position = servoOutakeRotateTwo.getPosition();
+                    servoOutakeRotateOne.setPosition(position - 0.05) && servoOutakeRotateTwo.setPosition(position - 0.05);
+                }
+            } else {
+                servoOutakeRotateOne.setPosition(0) && servoOutakeRotateTwo.setPosition(0);
+            }
+
+            if (gamepad2.dpad_left) {
+              servoOutakeGrab.setPosition(0)
+            }
+
+            if (gamepad2.dpad_right) {
+                servoOutakeGrab.setPosition(1)
+            }
+
+            if (gamepad2.a) {
+                servoOutakeSpin.setPosition(0)
+            }
+
+            if (gamepad2.y) {
+                servoOutakeSpin.setPosition(1)
+            }
         }
     }
 }

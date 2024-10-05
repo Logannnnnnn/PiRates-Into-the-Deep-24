@@ -65,7 +65,7 @@ import com.qualcomm.robotcore.hardware.SwitchableLight;
 public class RobotAutoDriveToLine_Linear extends LinearOpMode {
 
     /* Declare OpMode members. */
-    private DcMotor         leftDrive   = null;
+    private DcMotor motorFrontLeft = null;
     private DcMotor         rightDrive  = null;
 
     /** The variable to store a reference to our color sensor hardware object */
@@ -78,17 +78,17 @@ public class RobotAutoDriveToLine_Linear extends LinearOpMode {
     public void runOpMode() {
 
         // Initialize the drive system variables.
-        leftDrive  = hardwareMap.get(DcMotor.class, "left_drive");
+        motorFrontLeft = hardwareMap.get(DcMotor.class, "left_drive");
         rightDrive = hardwareMap.get(DcMotor.class, "right_drive");
 
         // To drive forward, most robots need the motor on one side to be reversed, because the axles point in opposite directions.
         // When run, this OpMode should start both motors driving forward. So adjust these two lines based on your first test drive.
         // Note: The settings here assume direct drive on left and right wheels.  Gear Reduction or 90 Deg drives may require direction flips
-        leftDrive.setDirection(DcMotor.Direction.REVERSE);
+        motorFrontLeft.setDirection(DcMotor.Direction.REVERSE);
         rightDrive.setDirection(DcMotor.Direction.FORWARD);
 
         // If there are encoders connected, switch to RUN_USING_ENCODER mode for greater accuracy
-        // leftDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        // motorFrontLeft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         // rightDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
         // Get a reference to our sensor object. It's recommended to use NormalizedColorSensor over
@@ -118,7 +118,7 @@ public class RobotAutoDriveToLine_Linear extends LinearOpMode {
         }
 
         // Start the robot moving forward, and then begin looking for a white line.
-        leftDrive.setPower(APPROACH_SPEED);
+        motorFrontLeft.setPower(APPROACH_SPEED);
         rightDrive.setPower(APPROACH_SPEED);
 
         // run until the white line is seen OR the driver presses STOP;
@@ -127,7 +127,7 @@ public class RobotAutoDriveToLine_Linear extends LinearOpMode {
         }
 
         // Stop all motors
-        leftDrive.setPower(0);
+        motorFrontLeft.setPower(0);
         rightDrive.setPower(0);
     }
 
