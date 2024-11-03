@@ -4,10 +4,13 @@ import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.util.Size;
 
+import com.qualcomm.hardware.sparkfun.SparkFunOTOS;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.configuration.annotations.DeviceProperties;
+import com.qualcomm.robotcore.hardware.configuration.annotations.I2cDeviceType;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
@@ -15,9 +18,23 @@ import org.firstinspires.ftc.vision.VisionPortal;
 import org.firstinspires.ftc.vision.opencv.ImageRegion;
 import org.firstinspires.ftc.vision.opencv.PredominantColorProcessor;
 
-@Autonomous(name = "blueAutoOne", group = "BLUE")
+/**
+ * {@link SparkFunOTOS} is the Java driver for the SparkFun Qwiic Optical Tracking Odometry Sensor
+ * (OTOS). This is a port of the Arduino library.
+ *
+ * @see <a href="https://www.sparkfun.com/products/24904">SparkFun OTOS Product Page</a>
+ * @see <a href="https://github.com/sparkfun/SparkFun_Qwiic_OTOS_Arduino_Library/">Arduino Library</a>
+ */
+@I2cDeviceType
+@DeviceProperties(
+        name = "SparkFun OTOS",
+        xmlTag = "SparkFunOTOS",
+        description = "SparkFun Qwiic Optical Tracking Odometry Sensor"
+)
+
+@Autonomous(name = "autoOne", group = "ONE")
 @Disabled
-public class blueAutoOne extends LinearOpMode {
+public class autoSpecimenScore extends LinearOpMode {
 
     // Calculate the COUNTS_PER_INCH for your specific drive train.
     // Go to your motor vendor website to determine your motor's COUNTS_PER_MOTOR_REV
@@ -62,16 +79,14 @@ public class blueAutoOne extends LinearOpMode {
      *  or
      *      .setCamera(BuiltinCameraDirection.BACK)    ... for a Phone Camera
      */
-    VisionPortal portal = new VisionPortal.Builder()
-            .addProcessor(colorSensor)
-            .setCameraResolution(new Size(320, 240))
-            .setCamera(hardwareMap.get(WebcamName.class, "Webcam 1"))
-            .build();
+
     /* Declare OpMode members. */
     private DcMotor motorFrontLeft = null;
     private DcMotor motorBackLeft = null;
     private DcMotor motorFrontRight = null;
     private DcMotor motorBackRight = null;
+
+    private VisionPortal visionPortal;
 
     @Override
     public void runOpMode() {
@@ -107,28 +122,52 @@ public class blueAutoOne extends LinearOpMode {
                 motorBackRight.getCurrentPosition());
         telemetry.update();
 
+        VisionPortal portal = new VisionPortal.Builder()
+                .addProcessor(colorSensor)
+                .setCameraResolution(new Size(320, 240))
+                .setCamera(hardwareMap.get(WebcamName.class, "Webcam 1"))
+                .build();
+
+
         // Wait for the game to start (driver presses START)
         waitForStart();
 
         // Step through each leg of the path,
         // Note: Reverse movement is obtained by setting a negative distance (not speed)
-        encoderDrive(DRIVE_SPEED, 48, 48, 48, 48, 5.0);  // S1: Forward 47 Inches with 5 Sec timeout
-        encoderDrive(TURN_SPEED, -12, 12, 12, 12, 4.0);  // S2: Turn Right 12 Inches with 4 Sec timeout
-        encoderDrive(DRIVE_SPEED, -24, -24, -24, -24, 4.0);  // S3: Reverse 24 Inches with 4 Sec timeout
+        encoderDrive(DRIVE_SPEED, 15, 15, 15, 15, 1.0);
+        encoderDrive(DRIVE_SPEED, -5, -5, -5, -5, 1.0);
+        encoderDrive(DRIVE_SPEED, 18, -18, -18, 18, 1.0);
+        encoderDrive(DRIVE_SPEED, -5, -5, -5, -5, 1.0);
+        encoderDrive(DRIVE_SPEED, -18, 18, 18, -18, 1.0);
+        encoderDrive(DRIVE_SPEED, 15, 15, 15, 15, 1.0);
+        encoderDrive(DRIVE_SPEED, -5, -5, -5, -5, 1.0);
+        encoderDrive(DRIVE_SPEED, 18, -18, -18, 18, 1.0);
+        encoderDrive(DRIVE_SPEED, -5, -5, -5, -5, 1.0);
+        encoderDrive(DRIVE_SPEED, -18, 18, 18, -18, 1.0);
+        encoderDrive(DRIVE_SPEED, 15, 15, 15, 15, 1.0);
+        encoderDrive(DRIVE_SPEED, -5, -5, -5, -5, 1.0);
+        encoderDrive(DRIVE_SPEED, 18, -18, -18, 18, 1.0);
+        encoderDrive(DRIVE_SPEED, -5, -5, -5, -5, 1.0);
+        encoderDrive(DRIVE_SPEED, -18, 18, 18, -18, 1.0);
+        encoderDrive(DRIVE_SPEED, 15, 15, 15, 15, 1.0);
+
 
         telemetry.addData("Path", "Complete");
         telemetry.update();
         sleep(1000);  // pause to display final telemetry message.
+
+
     }
 
     @SuppressLint("DefaultLocale")
     public void encoderDrive(double speed,
-                             double frontLeftInches, double backLeftInches, double backRightInches, double frontRightInches,
+                             double frontLeftInches, double backLeftInches, double frontRightInches, double backRightInches,
                              double timeoutS) {
         int newFrontLeftTarget;
         int newBackLeftTarget;
-        int newBackRightTarget;
         int newFrontRightTarget;
+        int newBackRightTarget;
+
 
         // Ensure that the OpMode is still active
         if (opModeIsActive()) {
@@ -136,8 +175,9 @@ public class blueAutoOne extends LinearOpMode {
             // Determine new target position, and pass to motor controller
             newFrontLeftTarget = motorFrontLeft.getCurrentPosition() + (int) (frontLeftInches * COUNTS_PER_INCH);
             newBackLeftTarget = motorBackLeft.getCurrentPosition() + (int) (backLeftInches * COUNTS_PER_INCH);
-            newBackRightTarget = motorBackRight.getCurrentPosition() + (int) (backRightInches * COUNTS_PER_INCH);
             newFrontRightTarget = motorFrontRight.getCurrentPosition() + (int) (frontRightInches * COUNTS_PER_INCH);
+            newBackRightTarget = motorBackRight.getCurrentPosition() + (int) (backRightInches * COUNTS_PER_INCH);
+
             motorFrontLeft.setTargetPosition(newFrontLeftTarget);
             motorBackLeft.setTargetPosition(newBackLeftTarget);
             motorBackRight.setTargetPosition(newBackRightTarget);
@@ -188,6 +228,8 @@ public class blueAutoOne extends LinearOpMode {
                 telemetry.update();
 
                 sleep(20);
+
+
             }
 
             // Stop all motion;

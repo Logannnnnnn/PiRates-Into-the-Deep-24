@@ -15,34 +15,41 @@ public class driveCode extends LinearOpMode {
     public void runOpMode() {
 
         DcMotor motorFrontRight = hardwareMap.dcMotor.get("motorFrontRight"); // input 0
-        DcMotor motorBackRight = hardwareMap.dcMotor.get("motorBackRight"); // input 1
-        DcMotor motorFrontLeft = hardwareMap.dcMotor.get("motorFrontLeft"); // input 2
+        DcMotor motorFrontLeft = hardwareMap.dcMotor.get("motorFrontLeft"); // input 1
+        DcMotor motorBackRight = hardwareMap.dcMotor.get("motorBackRight"); // input 2
         DcMotor motorBackLeft = hardwareMap.dcMotor.get("motorBackLeft");  // input 3
 
         DcMotor motorOuttakeLiftOne = hardwareMap.dcMotor.get("motorOuttakeLiftOne"); // ex input 0
         DcMotor motorOuttakeLiftTwo = hardwareMap.dcMotor.get("motorOuttakeLiftTwo"); // ex input 1
-        DcMotor motorIntakeExtendOne = hardwareMap.dcMotor.get("motorIntakeExtendOne"); // ex input 2
-        DcMotor motorIntakeExtendTwo = hardwareMap.dcMotor.get("motorIntakeExtendTwo"); // ex input 3
+        DcMotor motorIntakeExtend = hardwareMap.dcMotor.get("motorIntakeExtend"); // ex input 2
 
-        Servo servoIntakeGrab = hardwareMap.servo.get("servoIntakeGrab"); // servo ex 0
-        Servo servoIntakeRotate = hardwareMap.servo.get("servoIntakeRotate"); // servo ex 1
+
         Servo servoOuttakeRotateOne = hardwareMap.servo.get("servoOuttakeRotateOne"); // servo 0
         Servo servoOuttakeRotateTwo = hardwareMap.servo.get("servoOuttakeRotateTwo"); // servo 1
         Servo servoOuttakeGrab = hardwareMap.servo.get("servoOuttakeGrab"); // servo 2
         Servo servoOuttakeSpin = hardwareMap.servo.get("servoOuttakeSpin"); // servo 3
 
-        motorBackRight.setDirection(DcMotorSimple.Direction.REVERSE);
-        motorFrontRight.setDirection(DcMotorSimple.Direction.REVERSE);
+        Servo servoIntakeGrab = hardwareMap.servo.get("servoIntakeGrab"); // servo ex 0
+        Servo servoIntakeRotate = hardwareMap.servo.get("servoIntakeRotate"); // servo ex 1
+
+
+        motorBackLeft.setDirection(DcMotorSimple.Direction.REVERSE);
+        motorFrontLeft.setDirection(DcMotorSimple.Direction.REVERSE);
+
 
         motorFrontLeft.setZeroPowerBehavior(BRAKE);
         motorFrontRight.setZeroPowerBehavior(BRAKE);
         motorBackLeft.setZeroPowerBehavior(BRAKE);
         motorBackRight.setZeroPowerBehavior(BRAKE);
 
+
         motorOuttakeLiftOne.setZeroPowerBehavior(BRAKE);
         motorOuttakeLiftTwo.setZeroPowerBehavior(BRAKE);
-        motorIntakeExtendOne.setZeroPowerBehavior(BRAKE);
-        motorIntakeExtendTwo.setZeroPowerBehavior(BRAKE);
+
+        motorIntakeExtend.setZeroPowerBehavior(BRAKE);
+
+
+
 
         waitForStart();
 
@@ -68,20 +75,18 @@ public class driveCode extends LinearOpMode {
 
             double extenderPowerOut = (gamepad2.right_trigger);
             if (gamepad2.right_trigger > 0.01) {
-                motorIntakeExtendOne.setPower(extenderPowerOut);
-                motorIntakeExtendTwo.setPower(extenderPowerOut);
+                motorIntakeExtend.setPower(extenderPowerOut);
             } else {
-                motorIntakeExtendOne.setPower(0);
-                motorIntakeExtendTwo.setPower(0);
+                motorIntakeExtend.setPower(0);
             }
+
             double extenderPowerIn = (gamepad2.left_trigger);
             if (gamepad2.left_trigger > 0.01) {
-                motorIntakeExtendOne.setPower(-extenderPowerIn);
-                motorIntakeExtendTwo.setPower(-extenderPowerIn);
+                motorIntakeExtend.setPower(-extenderPowerIn);
             } else {
-                motorIntakeExtendOne.setPower(0);
-                motorIntakeExtendTwo.setPower(0);
+                motorIntakeExtend.setPower(0);
             }
+
 
             if (gamepad2.left_bumper) {
                 while (gamepad2.left_bumper) {
@@ -111,6 +116,7 @@ public class driveCode extends LinearOpMode {
                 motorOuttakeLiftTwo.setPower(0);
             }
 
+
             if (gamepad2.dpad_up) {
                 while (gamepad2.dpad_up) {
                     double position = servoOuttakeRotateOne.getPosition();
@@ -123,7 +129,7 @@ public class driveCode extends LinearOpMode {
                 servoOuttakeRotateTwo.setPosition(0);
             }
 
-            if (gamepad2.dpad_up) {
+            if (gamepad2.dpad_down) {
                 while (gamepad2.dpad_down) {
                     double position = servoOuttakeRotateOne.getPosition();
                     double positionTwo = servoOuttakeRotateTwo.getPosition();
@@ -134,7 +140,7 @@ public class driveCode extends LinearOpMode {
                 servoOuttakeRotateOne.setPosition(0);
                 servoOuttakeRotateTwo.setPosition(0);
             }
-            
+
 
             if (gamepad2.dpad_left) {
                 servoOuttakeGrab.setPosition(0);
