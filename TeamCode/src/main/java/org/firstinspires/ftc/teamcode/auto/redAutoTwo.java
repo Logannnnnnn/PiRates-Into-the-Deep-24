@@ -17,7 +17,7 @@ import org.firstinspires.ftc.vision.opencv.PredominantColorProcessor;
 
 @Autonomous(name = "redAutoOne", group = "RED")
 @Disabled
-public class redLeftAuto extends LinearOpMode {
+public class redAutoTwo extends LinearOpMode {
 
     // Calculate the COUNTS_PER_INCH for your specific drive train.
     // Go to your motor vendor website to determine your motor's COUNTS_PER_MOTOR_REV
