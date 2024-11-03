@@ -1,6 +1,6 @@
 ## NOTICE
 
-This repository contains the public FTC SDK for the CENTERSTAGE (2023-2024) competition season.
+This repository contains the public FTC SDK for the INTO THE DEEP (2024-2025) competition season.
 
 ## Welcome!
 This GitHub repository contains the source code that is used to build an Android app to control a *FIRST* Tech Challenge competition robot.  To use this SDK, download/clone the entire project to your local computer.
@@ -59,11 +59,7 @@ The readme.md file located in the [/TeamCode/src/main/java/org/firstinspires/ftc
 
 # Release Information
 
-
 ## Version 10.1 (20240919-122750)
-=======
-## Version 10.1
-
 
 ### Enhancements
 * Adds new OpenCV-based `VisionProcessor`s (which may be attached to a VisionPortal in either Java or Blocks) to help teams implement color processing via computer vision in the INTO THE DEEP game
