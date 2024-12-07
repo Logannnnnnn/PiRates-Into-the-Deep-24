@@ -1,10 +1,9 @@
-package org.firstinspires.ftc.teamcode.auto;
+package org.firstinspires.ftc.robotcontroller.auto;
 
 import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.util.Size;
 
-import com.qualcomm.hardware.sparkfun.SparkFunOTOS;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
@@ -18,13 +17,7 @@ import org.firstinspires.ftc.vision.VisionPortal;
 import org.firstinspires.ftc.vision.opencv.ImageRegion;
 import org.firstinspires.ftc.vision.opencv.PredominantColorProcessor;
 
-/**
- * {@link SparkFunOTOS} is the Java driver for the SparkFun Qwiic Optical Tracking Odometry Sensor
- * (OTOS). This is a port of the Arduino library.
- *
- * @see <a href="https://www.sparkfun.com/products/24904">SparkFun OTOS Product Page</a>
- * @see <a href="https://github.com/sparkfun/SparkFun_Qwiic_OTOS_Arduino_Library/">Arduino Library</a>
- */
+
 @I2cDeviceType
 @DeviceProperties(
         name = "SparkFun OTOS",
@@ -34,7 +27,7 @@ import org.firstinspires.ftc.vision.opencv.PredominantColorProcessor;
 
 @Autonomous(name = "autoOne", group = "ONE")
 @Disabled
-public class autoBasket extends LinearOpMode {
+public class autoSpecimenScore extends LinearOpMode {
 
     // Calculate the COUNTS_PER_INCH for your specific drive train.
     // Go to your motor vendor website to determine your motor's COUNTS_PER_MOTOR_REV
@@ -134,11 +127,23 @@ public class autoBasket extends LinearOpMode {
 
         // Step through each leg of the path,
         // Note: Reverse movement is obtained by setting a negative distance (not speed)
-        encoderDrive(DRIVE_SPEED, 15, -15, -15, 15, 1.0);
         encoderDrive(DRIVE_SPEED, 15, 15, 15, 15, 1.0);
         encoderDrive(DRIVE_SPEED, -5, -5, -5, -5, 1.0);
-        encoderDrive(TURN_SPEED, -5, -5, 5, 5, 1.0);
-        encoderDrive(DRIVE_SPEED, 18, 18, 18, 18, 1.0);
+        encoderDrive(DRIVE_SPEED, 18, -18, -18, 18, 1.0);
+        encoderDrive(DRIVE_SPEED, -5, -5, -5, -5, 1.0);
+        encoderDrive(DRIVE_SPEED, -18, 18, 18, -18, 1.0);
+        encoderDrive(DRIVE_SPEED, 15, 15, 15, 15, 1.0);
+        encoderDrive(DRIVE_SPEED, -5, -5, -5, -5, 1.0);
+        encoderDrive(DRIVE_SPEED, 18, -18, -18, 18, 1.0);
+        encoderDrive(DRIVE_SPEED, -5, -5, -5, -5, 1.0);
+        encoderDrive(DRIVE_SPEED, -18, 18, 18, -18, 1.0);
+        encoderDrive(DRIVE_SPEED, 15, 15, 15, 15, 1.0);
+        encoderDrive(DRIVE_SPEED, -5, -5, -5, -5, 1.0);
+        encoderDrive(DRIVE_SPEED, 18, -18, -18, 18, 1.0);
+        encoderDrive(DRIVE_SPEED, -5, -5, -5, -5, 1.0);
+        encoderDrive(DRIVE_SPEED, -18, 18, 18, -18, 1.0);
+        encoderDrive(DRIVE_SPEED, 15, 15, 15, 15, 1.0);
+
 
         telemetry.addData("Path", "Complete");
         telemetry.update();

@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.auto;
+package org.firstinspires.ftc.robotcontroller.auto;
 
 import android.annotation.SuppressLint;
 import android.graphics.Color;
