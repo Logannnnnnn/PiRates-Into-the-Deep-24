@@ -24,10 +24,9 @@ public class compCode extends LinearOpMode {
         DcMotor motorIntakeExtend = hardwareMap.dcMotor.get("motorIntakeExtend"); // ex input 2
 
 
-        Servo servoOuttakeRotateOne = hardwareMap.servo.get("servoOuttakeRotateOne"); // servo 0
-        Servo servoOuttakeRotateTwo = hardwareMap.servo.get("servoOuttakeRotateTwo"); // servo 1
-        Servo servoOuttakeClaw = hardwareMap.servo.get("servoOuttakeClaw"); // servo 2
-        Servo servoOuttakeTilt = hardwareMap.servo.get("servoOuttakeTilt"); // servo 3
+        Servo servoOuttakeRotate = hardwareMap.servo.get("servoOuttakeRotate"); // servo 0
+        Servo servoOuttakeClaw = hardwareMap.servo.get("servoOuttakeClaw"); // servo 1
+        Servo servoOuttakeBucket = hardwareMap.servo.get("servoOuttakeBucket"); // servo 2
 
         Servo servoIntakeClaw = hardwareMap.servo.get("servoIntakeClaw"); // servo ex 0
         Servo servoIntakeRotate = hardwareMap.servo.get("servoIntakeRotate"); // servo ex 1
@@ -87,11 +86,11 @@ public class compCode extends LinearOpMode {
 
 
             if (gamepad2.dpad_up) {
-                servoIntakeRotate.setPosition(0);
+                servoIntakeRotate.setPosition(0.6);
             }
 
             if (gamepad2.dpad_down) {
-                servoIntakeRotate.setPosition(1);
+                servoIntakeRotate.setPosition(0);
             }
 
 
@@ -110,19 +109,16 @@ public class compCode extends LinearOpMode {
 
 
             if (gamepad2.left_bumper) {
-                servoOuttakeRotateOne.setPosition(0.2);
-                servoOuttakeRotateTwo.setPosition(0.2);
+                servoOuttakeRotate.setPosition(0.2);
             }
 
 
             if (gamepad2.right_bumper) {
-                servoOuttakeRotateOne.setPosition(0.75);
-                servoOuttakeRotateTwo.setPosition(0.75);
+                servoOuttakeRotate.setPosition(0.75);
             }
 
             if (gamepad2.left_bumper && gamepad2.right_bumper) {
-                servoOuttakeRotateOne.setPosition(0.52);
-                servoOuttakeRotateTwo.setPosition(0.52);
+                servoOuttakeRotate.setPosition(0.52);
             }
 
 
@@ -136,10 +132,10 @@ public class compCode extends LinearOpMode {
 
 
             if (gamepad2.a) {
-                servoOuttakeTilt.setPosition(0);
+                servoOuttakeBucket.setPosition(0.7);
             }
             if (gamepad2.y) {
-                servoOuttakeTilt.setPosition(1);
+                servoOuttakeBucket.setPosition(0.3);
             }
 
 
