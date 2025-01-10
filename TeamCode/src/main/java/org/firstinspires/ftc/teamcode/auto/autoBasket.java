@@ -22,7 +22,7 @@ public class autoBasket extends LinearOpMode {
     // For example, use a value of 2.0 for a 12-tooth spur gear driving a 24-tooth spur gear.
     // This is gearing DOWN for less speed and more torque.
     // For gearing UP, use a gear ratio less than 1.0. Note this will affect the direction of wheel rotation.
-    static final double COUNTS_PER_MOTOR_REV = 384.5;    // eg: TETRIX Motor Encoder
+    static final double COUNTS_PER_MOTOR_REV = 435;    // eg: TETRIX Motor Encoder
     static final double COUNTS_PER_INCH = (COUNTS_PER_MOTOR_REV);
 
     static final double LIFT_SPEED = 0.5;
@@ -36,16 +36,17 @@ public class autoBasket extends LinearOpMode {
      *  2) Move runs out of time
      *  3) Driver stops the OpMode running.
      */
-    Servo servoOuttakeRotate = hardwareMap.servo.get("servoOuttakeRotate"); // servo 0
-    Servo servoOuttakeClaw = hardwareMap.servo.get("servoOuttakeClaw"); // servo 1
-    Servo servoOuttakeBucket = hardwareMap.servo.get("servoOuttakeBucket"); // servo 2
-    Servo servoIntakeClaw = hardwareMap.servo.get("servoIntakeClaw"); // servo ex 0
-    Servo servoIntakeRotate = hardwareMap.servo.get("servoIntakeRotate"); // servo ex 1
-    Servo servoIntakeClawSpin = hardwareMap.servo.get("servoIntakeClawSpin");// servo ex 2
+    Servo servoOuttakeClaw = hardwareMap.servo.get("servoOuttakeClaw"); // ex servo 0
+    Servo servoOuttakeBucket = hardwareMap.servo.get("servoOuttakeBucket"); // ex servo 1
+    Servo servoIntakeClaw = hardwareMap.servo.get("servoIntakeClaw"); // servo 0
+    Servo servoIntakeRotate = hardwareMap.servo.get("servoIntakeRotate"); // servo 1
+    Servo servoIntakeClawSpin = hardwareMap.servo.get("servoIntakeClawSpin");// servo 2
     /* Declare OpMode members. */
+
     private final DcMotor motorOuttakeLiftOne = null;
     private final DcMotor motorOuttakeLiftTwo = null;
     private final DcMotor motorIntakeExtend = null;
+
     private VisionPortal visionPortal;
 
     @Override
@@ -137,7 +138,7 @@ public class autoBasket extends LinearOpMode {
             // onto the next step, use (isBusy() || isBusy()) in the loop test.
             while (opModeIsActive() &&
                     (runtime.seconds() < timeoutS) &&
-                    (motorOuttakeLiftOne.isBusy() && motorOuttakeLiftTwo.isBusy() && motorIntakeExtend.isBusy())) {
+                    motorOuttakeLiftOne.isBusy() && motorOuttakeLiftTwo.isBusy() && motorIntakeExtend.isBusy()) {
 
                 // Display it for the driver.
                 telemetry.addData("Running to", " %7d :%7d", newLiftOneTarget, newLiftTwoTarget, newExtendTarget);

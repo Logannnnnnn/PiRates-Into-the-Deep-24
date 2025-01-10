@@ -24,15 +24,14 @@ public class compCode extends LinearOpMode {
         DcMotor motorIntakeExtend = hardwareMap.dcMotor.get("motorIntakeExtend"); // ex input 2
 
 
-        Servo servoOuttakeRotate = hardwareMap.servo.get("servoOuttakeRotate"); // servo 0
-        Servo servoOuttakeClaw = hardwareMap.servo.get("servoOuttakeClaw"); // servo 1
-        Servo servoOuttakeBucket = hardwareMap.servo.get("servoOuttakeBucket"); // servo 2
+        Servo servoOuttakeBucket = hardwareMap.servo.get("servoOuttakeBucket"); // servo ex 0
+        Servo servoOuttakeClaw = hardwareMap.servo.get("servoOuttakeClaw"); // servo ex 1
 
-        Servo servoIntakeClaw = hardwareMap.servo.get("servoIntakeClaw"); // servo ex 0
-        Servo servoIntakeRotate = hardwareMap.servo.get("servoIntakeRotate"); // servo ex 1
-        Servo servoIntakeClawSpin = hardwareMap.servo.get("servoIntakeClawSpin");// servo ex 2
+        Servo servoIntakeClaw = hardwareMap.servo.get("servoIntakeClaw"); // servo 0
+        Servo servoIntakeRotate = hardwareMap.servo.get("servoIntakeRotate"); // servo 1
+        Servo servoIntakeClawSpin = hardwareMap.servo.get("servoIntakeClawSpin");// servo 2
 
-        motorBackLeft.setDirection(DcMotorSimple.Direction.REVERSE);
+        motorFrontRight.setDirection(DcMotorSimple.Direction.REVERSE);
         motorBackRight.setDirection(DcMotorSimple.Direction.REVERSE);
 
 
@@ -54,15 +53,15 @@ public class compCode extends LinearOpMode {
 
         while (opModeIsActive()) {
 
-            double y = -gamepad1.left_stick_y; // Remember, this is reversed!
+            double y = gamepad1.left_stick_y; // Remember, this is reversed!
             double x = gamepad1.left_stick_x * 1.1;
             double rx = gamepad1.right_stick_x;
 
             double denominator = Math.max(Math.abs(y) + Math.abs(x) + Math.abs(rx), 1);
-            double frontLeftPower = (y + x - rx) / denominator;
-            double backLeftPower = (y - x + rx) / denominator;
-            double frontRightPower = (y - x - rx) / denominator;
-            double backRightPower = (y + x + rx) / denominator;
+            double frontLeftPower = (y - x - rx) / denominator;
+            double backLeftPower = (y + x - rx) / denominator;
+            double frontRightPower = (y + x + rx) / denominator;
+            double backRightPower = (y - x + rx) / denominator;
 
             motorFrontLeft.setPower(frontLeftPower);
             motorBackLeft.setPower(backLeftPower);
@@ -86,7 +85,7 @@ public class compCode extends LinearOpMode {
 
 
             if (gamepad2.dpad_up) {
-                servoIntakeRotate.setPosition(0.6);
+                servoIntakeRotate.setPosition(0.5);
             }
 
             if (gamepad2.dpad_down) {
@@ -109,33 +108,20 @@ public class compCode extends LinearOpMode {
 
 
             if (gamepad2.left_bumper) {
-                servoOuttakeRotate.setPosition(0.2);
+                servoOuttakeBucket.setPosition(1);
             }
 
 
             if (gamepad2.right_bumper) {
-                servoOuttakeRotate.setPosition(0.75);
-            }
-
-            if (gamepad2.left_bumper && gamepad2.right_bumper) {
-                servoOuttakeRotate.setPosition(0.52);
-            }
-
-
-
-            if (gamepad2.dpad_left) {
-                servoOuttakeClaw.setPosition(0);
-            }
-            if (gamepad2.dpad_right) {
-                servoOuttakeClaw.setPosition(1);
+                servoOuttakeBucket.setPosition(0.45);
             }
 
 
             if (gamepad2.a) {
-                servoOuttakeBucket.setPosition(0.7);
+                servoOuttakeClaw.setPosition(.3);
             }
             if (gamepad2.y) {
-                servoOuttakeBucket.setPosition(0.3);
+                servoOuttakeClaw.setPosition(.5);
             }
 
 
@@ -143,15 +129,15 @@ public class compCode extends LinearOpMode {
                 servoIntakeClaw.setPosition(0);
             }
             if (gamepad2.b) {
-                servoIntakeClaw.setPosition(1);
+                servoIntakeClaw.setPosition(0.5);
             }
 
 
-            if (gamepad1.x) {
+            if (gamepad2.dpad_left) {
                 servoIntakeClawSpin.setPosition(1);
             }
-            if (gamepad1.b) {
-                servoIntakeClawSpin.setPosition(0.45);
+            if (gamepad2.dpad_right) {
+                servoIntakeClawSpin.setPosition(0.67);
             }
         }
     }
