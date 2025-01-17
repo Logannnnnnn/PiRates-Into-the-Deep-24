@@ -1,0 +1,349 @@
+package org.firstinspires.ftc.teamcode.auto;
+
+import static com.qualcomm.robotcore.hardware.DcMotor.ZeroPowerBehavior.BRAKE;
+
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.hardware.Servo;
+
+
+@Autonomous
+public class autoSpecimenTwo extends LinearOpMode {
+    @Override
+    public void runOpMode() {
+
+        DcMotor motorFrontRight = hardwareMap.dcMotor.get("motorFrontRight"); // input 0
+        DcMotor motorFrontLeft = hardwareMap.dcMotor.get("motorFrontLeft"); // input 1
+        DcMotor motorBackRight = hardwareMap.dcMotor.get("motorBackRight"); // input 2
+        DcMotor motorBackLeft = hardwareMap.dcMotor.get("motorBackLeft");  // input 3
+
+        DcMotor motorOuttakeLiftOne = hardwareMap.dcMotor.get("motorOuttakeLiftOne"); // ex input 0
+        DcMotor motorOuttakeLiftTwo = hardwareMap.dcMotor.get("motorOuttakeLiftTwo"); // ex input 1
+        DcMotor motorIntakeExtend = hardwareMap.dcMotor.get("motorIntakeExtend"); // ex input 2
+
+
+        Servo servoOuttakeBucket = hardwareMap.servo.get("servoOuttakeBucket"); // servo ex 0
+        Servo servoOuttakeClaw = hardwareMap.servo.get("servoOuttakeClaw"); // servo ex 1
+
+        Servo servoIntakeClaw = hardwareMap.servo.get("servoIntakeClaw"); // servo 0
+        Servo servoIntakeRotate = hardwareMap.servo.get("servoIntakeRotate"); // servo 1
+        Servo servoIntakeClawSpin = hardwareMap.servo.get("servoIntakeClawSpin");// servo 2
+
+        motorFrontLeft.setDirection(DcMotorSimple.Direction.REVERSE);
+        motorBackLeft.setDirection(DcMotorSimple.Direction.REVERSE);
+
+
+        motorFrontLeft.setZeroPowerBehavior(BRAKE);
+        motorFrontRight.setZeroPowerBehavior(BRAKE);
+        motorBackLeft.setZeroPowerBehavior(BRAKE);
+        motorBackRight.setZeroPowerBehavior(BRAKE);
+
+
+        motorOuttakeLiftOne.setZeroPowerBehavior(BRAKE);
+        motorOuttakeLiftTwo.setZeroPowerBehavior(BRAKE);
+
+        motorIntakeExtend.setZeroPowerBehavior(BRAKE);
+
+
+        waitForStart();
+
+        if (isStopRequested()) return;
+
+        while (opModeIsActive()) {
+
+            motorFrontLeft.setPower(-0.6);
+            motorBackLeft.setPower(0.6);
+            motorFrontRight.setPower(0.6);
+            motorBackRight.setPower(-0.6);
+
+            servoOuttakeClaw.setPosition(0.6);
+
+            sleep(800);
+
+            motorFrontLeft.setPower(0);
+            motorBackLeft.setPower(0);
+            motorFrontRight.setPower(0);
+            motorBackRight.setPower(0);
+
+            sleep(100);
+
+            motorFrontLeft.setPower(-0.6);
+            motorBackLeft.setPower(-0.6);
+            motorFrontRight.setPower(-0.6);
+            motorBackRight.setPower(-0.6);
+
+            sleep(1125);
+
+            motorFrontLeft.setPower(0);
+            motorBackLeft.setPower(0);
+            motorFrontRight.setPower(0);
+            motorBackRight.setPower(0);
+
+            sleep(100);
+
+            motorFrontLeft.setPower(-0.6);
+            motorBackLeft.setPower(0.6);
+            motorFrontRight.setPower(0.6);
+            motorBackRight.setPower(-0.6);
+
+            sleep(500);
+
+            motorFrontLeft.setPower(0);
+            motorBackLeft.setPower(0);
+            motorFrontRight.setPower(0);
+            motorBackRight.setPower(0);
+
+            sleep(100);
+
+            motorFrontLeft.setPower(0.6);
+            motorBackLeft.setPower(0.6);
+            motorFrontRight.setPower(0.6);
+            motorBackRight.setPower(0.6);
+
+            sleep(1100);
+
+            motorFrontLeft.setPower(0);
+            motorBackLeft.setPower(0);
+            motorFrontRight.setPower(0);
+            motorBackRight.setPower(0);
+
+            sleep(100);
+
+            motorFrontLeft.setPower(-0.6);
+            motorBackLeft.setPower(-0.6);
+            motorFrontRight.setPower(-0.6);
+            motorBackRight.setPower(-0.6);
+
+            sleep(1100);
+
+            motorFrontLeft.setPower(0);
+            motorBackLeft.setPower(0);
+            motorFrontRight.setPower(0);
+            motorBackRight.setPower(0);
+
+            sleep(100);
+
+            motorFrontLeft.setPower(-0.6);
+            motorBackLeft.setPower(0.6);
+            motorFrontRight.setPower(0.6);
+            motorBackRight.setPower(-0.6);
+
+            sleep(500);
+
+            motorFrontLeft.setPower(0);
+            motorBackLeft.setPower(0);
+            motorFrontRight.setPower(0);
+            motorBackRight.setPower(0);
+
+            sleep(100);
+
+            motorFrontLeft.setPower(0.6);
+            motorBackLeft.setPower(0.6);
+            motorFrontRight.setPower(0.6);
+            motorBackRight.setPower(0.6);
+
+            sleep(1100);
+
+            motorFrontLeft.setPower(0);
+            motorBackLeft.setPower(0);
+            motorFrontRight.setPower(0);
+            motorBackRight.setPower(0);
+
+            sleep(100);
+
+            motorFrontLeft.setPower(-0.6);
+            motorBackLeft.setPower(-0.6);
+            motorFrontRight.setPower(-0.6);
+            motorBackRight.setPower(-0.6);
+
+            sleep(1125);
+
+            motorFrontLeft.setPower(0);
+            motorBackLeft.setPower(0);
+            motorFrontRight.setPower(0);
+            motorBackRight.setPower(0);
+
+            sleep(100);
+
+            motorFrontLeft.setPower(-0.6);
+            motorBackLeft.setPower(0.6);
+            motorFrontRight.setPower(0.6);
+            motorBackRight.setPower(-0.6);
+
+            sleep(600);
+
+            motorFrontLeft.setPower(0);
+            motorBackLeft.setPower(0);
+            motorFrontRight.setPower(0);
+            motorBackRight.setPower(0);
+
+            sleep(100);
+
+            motorFrontLeft.setPower(0.6);
+            motorBackLeft.setPower(0.6);
+            motorFrontRight.setPower(0.6);
+            motorBackRight.setPower(0.6);
+
+            sleep(1300);
+
+            motorFrontLeft.setPower(0);
+            motorBackLeft.setPower(0);
+            motorFrontRight.setPower(0);
+            motorBackRight.setPower(0);
+
+            sleep(100);
+
+            motorFrontLeft.setPower(-0.6);
+            motorBackLeft.setPower(-0.6);
+            motorFrontRight.setPower(-0.6);
+            motorBackRight.setPower(-0.6);
+
+            sleep(500);
+
+            motorFrontLeft.setPower(0);
+            motorBackLeft.setPower(0);
+            motorFrontRight.setPower(0);
+            motorBackRight.setPower(0);
+
+            sleep(100);
+
+            motorFrontLeft.setPower(0.6);
+            motorBackLeft.setPower(-0.6);
+            motorFrontRight.setPower(-0.6);
+            motorBackRight.setPower(0.6);
+
+            sleep(675);
+
+            motorFrontLeft.setPower(0);
+            motorBackLeft.setPower(0);
+            motorFrontRight.setPower(0);
+            motorBackRight.setPower(0);
+
+            sleep(600);
+
+            motorFrontLeft.setPower(0.6);
+            motorBackLeft.setPower(0.6);
+            motorFrontRight.setPower(-0.6);
+            motorBackRight.setPower(-0.6);
+
+            sleep(950);
+
+            motorFrontLeft.setPower(0);
+            motorBackLeft.setPower(0);
+            motorFrontRight.setPower(0);
+            motorBackRight.setPower(0);
+
+            sleep(600);
+
+
+            motorFrontLeft.setPower(-0.6);
+            motorBackLeft.setPower(-0.6);
+            motorFrontRight.setPower(-0.6);
+            motorBackRight.setPower(-0.6);
+
+            sleep(680);
+
+            motorFrontLeft.setPower(0);
+            motorBackLeft.setPower(0);
+            motorFrontRight.setPower(0);
+            motorBackRight.setPower(0);
+
+            sleep(100);
+
+            servoOuttakeClaw.setPosition(0.8);
+
+            motorFrontLeft.setPower(0);
+            motorBackLeft.setPower(0);
+            motorFrontRight.setPower(0);
+            motorBackRight.setPower(0);
+
+            sleep(100);
+
+//Lifts off wall
+
+            motorOuttakeLiftOne.setPower(-0.4);
+            motorOuttakeLiftTwo.setPower(0.4);
+
+            sleep(300);
+
+            motorFrontLeft.setPower(-0.6);
+            motorBackLeft.setPower(0.6);
+            motorFrontRight.setPower(0.6);
+            motorBackRight.setPower(-0.6);
+
+
+            sleep(1500);
+
+            motorFrontLeft.setPower(0);
+            motorBackLeft.setPower(0);
+            motorFrontRight.setPower(0);
+            motorBackRight.setPower(0);
+
+            sleep(100);
+
+            motorFrontLeft.setPower(0.6);
+            motorBackLeft.setPower(0.6);
+            motorFrontRight.setPower(0.6);
+            motorBackRight.setPower(0.6);
+
+            sleep(200);
+
+            motorFrontLeft.setPower(0.6);
+            motorBackLeft.setPower(0.6);
+            motorFrontRight.setPower(-0.6);
+            motorBackRight.setPower(-0.6);
+
+            sleep(950);
+
+            motorFrontLeft.setPower(0);
+            motorBackLeft.setPower(0);
+            motorFrontRight.setPower(0);
+            motorBackRight.setPower(0);
+
+            sleep(100);
+
+            motorOuttakeLiftOne.setPower(-0.45);
+            motorOuttakeLiftTwo.setPower(0.45);
+
+            sleep(2000);
+
+            motorOuttakeLiftOne.setPower(0);
+            motorOuttakeLiftTwo.setPower(0);
+            motorOuttakeLiftOne.setZeroPowerBehavior(BRAKE);
+            motorOuttakeLiftTwo.setZeroPowerBehavior(BRAKE);
+
+            motorFrontLeft.setPower(-0.6);
+            motorBackLeft.setPower(-0.6);
+            motorFrontRight.setPower(-0.6);
+            motorBackRight.setPower(-0.6);
+
+            sleep(850);
+
+            motorFrontLeft.setPower(0);
+            motorBackLeft.setPower(0);
+            motorFrontRight.setPower(0);
+            motorBackRight.setPower(0);
+
+            sleep(100);
+
+            motorOuttakeLiftOne.setPower(-0.45);
+            motorOuttakeLiftTwo.setPower(0.45);
+
+            sleep(3000);
+
+            motorOuttakeLiftOne.setPower(0);
+            motorOuttakeLiftTwo.setPower(0);
+            motorOuttakeLiftOne.setZeroPowerBehavior(BRAKE);
+            motorOuttakeLiftTwo.setZeroPowerBehavior(BRAKE);
+
+            motorFrontLeft.setZeroPowerBehavior(BRAKE);
+            motorFrontRight.setZeroPowerBehavior(BRAKE);
+            motorBackLeft.setZeroPowerBehavior(BRAKE);
+            motorBackRight.setZeroPowerBehavior(BRAKE);
+            sleep(8000000);
+
+        }
+    }
+}

@@ -1,0 +1,102 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "org.firstinspires.ftc",
+    "module": "Blocks",
+    "version": "10.1.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.4"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "Blocks-10.1.0.aar",
+          "url": "Blocks-10.1.0.aar",
+          "size": 1314560,
+          "sha512": "96dd02d67b5da09d760a9bb53119ac9101a4c01a960bc27c2038bce26057160dfc25cffb528d4af19a58a2973ae0e72ebed39fc53bf0adca8df31efad422e1c0",
+          "sha256": "e00240fb4e6a597cde194c714629d8b8b28a5a3525f651e8cec46a49a4c6d951",
+          "sha1": "dcc8294ea8e950372f8631a68ff239ae29fc60c8",
+          "md5": "577b17833181cc1110e22cdc936da56c"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "androidx.appcompat",
+          "module": "appcompat",
+          "version": {
+            "requires": "1.2.0"
+          }
+        },
+        {
+          "group": "org.firstinspires.ftc",
+          "module": "RobotCore",
+          "version": {
+            "requires": "10.1.0"
+          }
+        },
+        {
+          "group": "org.firstinspires.ftc",
+          "module": "RobotServer",
+          "version": {
+            "requires": "10.1.0"
+          }
+        },
+        {
+          "group": "org.firstinspires.ftc",
+          "module": "Vision",
+          "version": {
+            "requires": "10.1.0"
+          }
+        },
+        {
+          "group": "org.firstinspires.ftc",
+          "module": "Hardware",
+          "version": {
+            "requires": "10.1.0"
+          }
+        },
+        {
+          "group": "org.firstinspires.ftc",
+          "module": "FtcCommon",
+          "version": {
+            "requires": "10.1.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "Blocks-10.1.0.aar",
+          "url": "Blocks-10.1.0.aar",
+          "size": 1314560,
+          "sha512": "96dd02d67b5da09d760a9bb53119ac9101a4c01a960bc27c2038bce26057160dfc25cffb528d4af19a58a2973ae0e72ebed39fc53bf0adca8df31efad422e1c0",
+          "sha256": "e00240fb4e6a597cde194c714629d8b8b28a5a3525f651e8cec46a49a4c6d951",
+          "sha1": "dcc8294ea8e950372f8631a68ff239ae29fc60c8",
+          "md5": "577b17833181cc1110e22cdc936da56c"
+        }
+      ]
+    }
+  ]
+}

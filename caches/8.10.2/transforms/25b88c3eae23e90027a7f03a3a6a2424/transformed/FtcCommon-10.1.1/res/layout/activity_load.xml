@@ -1,0 +1,147 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".configuration.FtcLoadFileActivity">
+
+    <include
+        android:id="@+id/included_header"
+        layout="@layout/header" />
+
+    <include
+        layout="@layout/backbar_layout"
+        android:id="@+id/backbar"
+        android:layout_below="@+id/included_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="0dp" />
+
+    <LinearLayout
+        android:layout_below="@+id/backbar"
+        android:layout_above="@+id/load_bottom"
+        android:id="@+id/holds_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="5dp"
+        android:paddingBottom="8dp">
+
+        <Button
+            android:id="@+id/new_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="0dp"
+            android:onClick="onNewButtonPressed"
+            android:text="@string/buttonNameNew"
+            android:minWidth="0dp"
+            android:textSize="16sp" />
+
+        <!-- red line -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dip"
+            android:background="?attr/lineBright" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:shrinkColumns="0"
+            android:stretchColumns="0">
+
+            <TableRow
+                android:id="@+id/files_holder"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/availableConfigListCaption"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/readOnlyExplanation"
+                        android:text="@string/readOnlyExplanation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <include
+                    layout="@layout/info_button"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp" />
+            </TableRow>
+        </TableLayout>
+
+        <ScrollView
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:id="@+id/inclusionlayout"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="vertical"></LinearLayout>
+        </ScrollView>
+
+        <LinearLayout
+            android:id="@+id/empty_filelist"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/load_bottom"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:orientation="vertical"
+        android:paddingTop="5dp"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingBottom="8dp">
+
+        <!-- red line -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dip"
+            android:background="?attr/lineBright" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/configureFromTemplateArea"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/configureFromTemplate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/configureFromTemplate"
+                android:minHeight="0dp"
+                android:minWidth="0dp"
+                android:onClick="onConfigureFromTemplatePressed"
+                android:textSize="15sp" />
+
+            <include
+                layout="@layout/info_button"
+                android:layout_width="60dp"
+                android:layout_height="60dp" />
+        </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>

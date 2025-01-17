@@ -85,11 +85,13 @@ public class compCode extends LinearOpMode {
 
 
             if (gamepad2.dpad_up) {
-                servoIntakeRotate.setPosition(0.5);
+                servoIntakeClaw.setPosition(0);
+                sleep(300);
+                servoIntakeRotate.setPosition(0.55);
             }
 
             if (gamepad2.dpad_down) {
-                servoIntakeRotate.setPosition(0);
+                servoIntakeRotate.setPosition(0.1);
             }
 
 
@@ -99,8 +101,9 @@ public class compCode extends LinearOpMode {
 
             double OuttakeLiftPower = gamepad2.right_stick_y;
             if (gamepad2.right_stick_y > 0.1 || gamepad2.right_stick_y < -0.1) {
-                motorOuttakeLiftOne.setPower(OuttakeLiftPower);
-                motorOuttakeLiftTwo.setPower(-OuttakeLiftPower);
+                motorOuttakeLiftOne.setPower(OuttakeLiftPower * 0.5);
+                motorOuttakeLiftTwo.setPower(-OuttakeLiftPower * 0.5);
+
             } else {
                 motorOuttakeLiftOne.setPower(0);
                 motorOuttakeLiftTwo.setPower(0);
@@ -108,20 +111,20 @@ public class compCode extends LinearOpMode {
 
 
             if (gamepad2.left_bumper) {
-                servoOuttakeBucket.setPosition(1);
+                servoOuttakeBucket.setPosition(.74);
             }
 
 
             if (gamepad2.right_bumper) {
-                servoOuttakeBucket.setPosition(0.45);
+                servoOuttakeBucket.setPosition(0.1);
             }
 
 
             if (gamepad2.a) {
-                servoOuttakeClaw.setPosition(.3);
+                servoOuttakeClaw.setPosition(0.8);
             }
             if (gamepad2.y) {
-                servoOuttakeClaw.setPosition(.5);
+                servoOuttakeClaw.setPosition(0.6);
             }
 
 
@@ -129,7 +132,7 @@ public class compCode extends LinearOpMode {
                 servoIntakeClaw.setPosition(0);
             }
             if (gamepad2.b) {
-                servoIntakeClaw.setPosition(0.5);
+                servoIntakeClaw.setPosition(0.85);
             }
 
 
@@ -137,7 +140,7 @@ public class compCode extends LinearOpMode {
                 servoIntakeClawSpin.setPosition(1);
             }
             if (gamepad2.dpad_right) {
-                servoIntakeClawSpin.setPosition(0.67);
+                servoIntakeClawSpin.setPosition(0);
             }
         }
     }

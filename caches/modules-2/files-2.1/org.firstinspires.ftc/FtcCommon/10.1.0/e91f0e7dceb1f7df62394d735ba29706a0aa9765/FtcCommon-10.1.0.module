@@ -1,0 +1,95 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "org.firstinspires.ftc",
+    "module": "FtcCommon",
+    "version": "10.1.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.4"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "FtcCommon-10.1.0.aar",
+          "url": "FtcCommon-10.1.0.aar",
+          "size": 4093582,
+          "sha512": "8d117ddad259100dda82484e6c8bec4ef352c25dbe6f59a7603252f13f11b7d46f7a7acc10a592e6b647f677e0b9e8423839faee5ed4b52ac378bfe1ac1d1ad9",
+          "sha256": "b4196f304b18e6e757f1cbbf997eb3d42a7de1f101866a46e0af62503f4dbbe4",
+          "sha1": "13e4e739a02457499d9139288b97340b36be95ed",
+          "md5": "0c5fe2f8286e3e27b95a1bab85dbfc79"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "androidx.appcompat",
+          "module": "appcompat",
+          "version": {
+            "requires": "1.2.0"
+          }
+        },
+        {
+          "group": "org.firstinspires.ftc",
+          "module": "RobotCore",
+          "version": {
+            "requires": "10.1.0"
+          }
+        },
+        {
+          "group": "org.firstinspires.ftc",
+          "module": "RobotServer",
+          "version": {
+            "requires": "10.1.0"
+          }
+        },
+        {
+          "group": "org.firstinspires.ftc",
+          "module": "Hardware",
+          "version": {
+            "requires": "10.1.0"
+          }
+        },
+        {
+          "group": "org.firstinspires.ftc",
+          "module": "Inspection",
+          "version": {
+            "requires": "10.1.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "FtcCommon-10.1.0.aar",
+          "url": "FtcCommon-10.1.0.aar",
+          "size": 4093582,
+          "sha512": "8d117ddad259100dda82484e6c8bec4ef352c25dbe6f59a7603252f13f11b7d46f7a7acc10a592e6b647f677e0b9e8423839faee5ed4b52ac378bfe1ac1d1ad9",
+          "sha256": "b4196f304b18e6e757f1cbbf997eb3d42a7de1f101866a46e0af62503f4dbbe4",
+          "sha1": "13e4e739a02457499d9139288b97340b36be95ed",
+          "md5": "0c5fe2f8286e3e27b95a1bab85dbfc79"
+        }
+      ]
+    }
+  ]
+}

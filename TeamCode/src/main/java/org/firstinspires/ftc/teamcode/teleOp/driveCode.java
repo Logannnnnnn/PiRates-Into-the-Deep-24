@@ -38,10 +38,10 @@ public class driveCode extends LinearOpMode {
             double rx = gamepad1.right_stick_x;
 
             double denominator = Math.max(Math.abs(y) + Math.abs(x) + Math.abs(rx), 1);
-            double frontLeftPower = (y + x - rx) / denominator;
-            double backLeftPower = (y - x + rx) / denominator;
-            double frontRightPower = (y - x - rx) / denominator;
-            double backRightPower = (y + x + rx) / denominator;
+            double frontLeftPower = (y - x - rx) / denominator;
+            double backLeftPower = (y + x - rx) / denominator;
+            double frontRightPower = (y + x + rx) / denominator;
+            double backRightPower = (y - x + rx) / denominator;
 
             motorFrontLeft.setPower(frontLeftPower);
             motorBackLeft.setPower(backLeftPower);

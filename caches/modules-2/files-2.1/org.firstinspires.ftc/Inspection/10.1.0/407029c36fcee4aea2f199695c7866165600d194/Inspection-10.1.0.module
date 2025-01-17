@@ -1,0 +1,81 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "org.firstinspires.ftc",
+    "module": "Inspection",
+    "version": "10.1.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.4"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "Inspection-10.1.0.aar",
+          "url": "Inspection-10.1.0.aar",
+          "size": 62971,
+          "sha512": "082a56f3ebd19a05645c705a50d089d37dfac16163382d42b0c6424a9c858e665cf6257cf6b819c718f936cdb797e8c7606e6139a3cd29d59669fe098d7d72b0",
+          "sha256": "f5992fa9908a5feae6bbbc3122842b46def78cdd2db92f219a95906f004f1dfc",
+          "sha1": "f3e449c935d8f1afef0345ee128b2bc3317b945a",
+          "md5": "c53107ed4311952db1488c519be92968"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "org.firstinspires.ftc",
+          "module": "RobotCore",
+          "version": {
+            "requires": "10.1.0"
+          }
+        },
+        {
+          "group": "com.journeyapps",
+          "module": "zxing-android-embedded",
+          "version": {
+            "requires": "4.3.0"
+          }
+        },
+        {
+          "group": "io.github.ehn-digital-green-development",
+          "module": "base45",
+          "version": {
+            "requires": "0.0.3"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "Inspection-10.1.0.aar",
+          "url": "Inspection-10.1.0.aar",
+          "size": 62971,
+          "sha512": "082a56f3ebd19a05645c705a50d089d37dfac16163382d42b0c6424a9c858e665cf6257cf6b819c718f936cdb797e8c7606e6139a3cd29d59669fe098d7d72b0",
+          "sha256": "f5992fa9908a5feae6bbbc3122842b46def78cdd2db92f219a95906f004f1dfc",
+          "sha1": "f3e449c935d8f1afef0345ee128b2bc3317b945a",
+          "md5": "c53107ed4311952db1488c519be92968"
+        }
+      ]
+    }
+  ]
+}

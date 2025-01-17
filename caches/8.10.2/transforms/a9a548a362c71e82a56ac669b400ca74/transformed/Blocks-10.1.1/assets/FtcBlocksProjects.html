@@ -1,0 +1,333 @@
+﻿<!DOCTYPE html>
+<html>
+<!--
+  Author: lizlooney@google.com (Liz Looney)
+-->
+<head>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta charset="utf-8">
+
+    <!-- Bootstrap -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/js/jquery-3.4.1.min.js" type="text/javascript"></script>
+    <script src="/js/bootstrap.min.js" type="text/javascript"></script>
+
+    <link href="/css/blocks_common.less" rel="stylesheet/less" type="text/css">
+    <link href="css/blocks_common.css" rel="stylesheet" type="text/css">
+
+    <script src="/js/less.min.js" type="text/javascript"></script>
+    <script src="/js/websocket-iframe.js" type="text/javascript"></script>
+
+    <script src="blockly/blockly_compressed.js" type="text/javascript"></script>
+    <script src="blockly/msg/messages.js" type="text/javascript"></script>
+    <script src="blockly/blocks_compressed.js" type="text/javascript"></script>
+    <script src="blockly/javascript_compressed.js" type="text/javascript"></script>
+    <script src="ftcblockly/generators/javascript.js" type="text/javascript"></script>
+    <script src="ftcblockly/generators/ftcjava.js" type="text/javascript"></script>
+
+    <script src="server" type="text/javascript"></script>
+    <script src="blocks/FtcBlocksProjects_common.js" type="text/javascript"></script>
+
+    <script src="blocks/acceleration.js" type="text/javascript"></script>
+    <script src="blocks/acceleration_sensor.js" type="text/javascript"></script>
+    <script src="blocks/analog_input.js" type="text/javascript"></script>
+    <script src="blocks/analog_output.js" type="text/javascript"></script>
+    <script src="blocks/android_accelerometer.js" type="text/javascript"></script>
+    <script src="blocks/android_gyroscope.js" type="text/javascript"></script>
+    <script src="blocks/android_orientation.js" type="text/javascript"></script>
+    <script src="blocks/android_sound_pool.js" type="text/javascript"></script>
+    <script src="blocks/android_text_to_speech.js" type="text/javascript"></script>
+    <script src="blocks/angular_velocity.js" type="text/javascript"></script>
+    <script src="blocks/april_tag.js" type="text/javascript"></script>
+    <script src="blocks/bno055imu.js" type="text/javascript"></script>
+    <script src="blocks/bno055imu_parameters.js" type="text/javascript"></script>
+    <!-- clipboard_util.js is not needed -->
+    <script src="blocks/color.js" type="text/javascript"></script>
+    <script src="blocks/color_blob_locator.js" type="text/javascript"></script>
+    <script src="blocks/color_range_sensor.js" type="text/javascript"></script>
+    <script src="blocks/color_sensor.js" type="text/javascript"></script>
+    <script src="blocks/compass_sensor.js" type="text/javascript"></script>
+    <script src="blocks/cr_servo.js" type="text/javascript"></script>
+    <script src="blocks/dbg_log.js" type="text/javascript"></script>
+    <script src="blocks/dc_motor.js" type="text/javascript"></script>
+    <script src="blocks/digital_channel.js" type="text/javascript"></script>
+    <script src="blocks/distance_sensor.js" type="text/javascript"></script>
+    <script src="blocks/elapsed_time2.js" type="text/javascript"></script>
+    <script src="blocks/exposure_control.js" type="text/javascript"></script>
+    <script src="blocks/focus_control.js" type="text/javascript"></script>
+    <script src="blocks/gain_control.js" type="text/javascript"></script>
+    <script src="blocks/gamepad.js" type="text/javascript"></script>
+    <script src="blocks/gyro_sensor.js" type="text/javascript"></script>
+    <script src="blocks/hardware_util.js" type="text/javascript"></script>
+    <script src="blocks/husky_lens.js" type="text/javascript"></script>
+    <script src="blocks/imu.js" type="text/javascript"></script>
+    <script src="blocks/imu_parameters.js" type="text/javascript"></script>
+    <script src="blocks/ir_seeker_sensor.js" type="text/javascript"></script>
+    <script src="blocks/led.js" type="text/javascript"></script>
+    <script src="blocks/led_effect.js" type="text/javascript"></script>
+    <script src="blocks/light_sensor.js" type="text/javascript"></script>
+    <script src="blocks/limelight_3a.js" type="text/javascript"></script>
+    <script src="blocks/linear_op_mode.js" type="text/javascript"></script>
+    <script src="blocks/locale.js" type="text/javascript"></script>
+    <script src="blocks/magnetic_flux.js" type="text/javascript"></script>
+    <script src="blocks/matrix_f.js" type="text/javascript"></script>
+    <script src="blocks/max_sonar_i2cxl.js" type="text/javascript"></script>
+    <script src="blocks/misc.js" type="text/javascript"></script>
+    <script src="blocks/mr_i2c_compass_sensor.js" type="text/javascript"></script>
+    <script src="blocks/mr_i2c_range_sensor.js" type="text/javascript"></script>
+    <script src="blocks/navigation.js" type="text/javascript"></script>
+    <script src="blocks/octoquad.js" type="text/javascript"></script>
+    <script src="blocks/open_gl_matrix.js" type="text/javascript"></script>
+    <script src="blocks/opencv.js" type="text/javascript"></script>
+    <script src="blocks/optical_distance_sensor.js" type="text/javascript"></script>
+    <script src="blocks/orientation.js" type="text/javascript"></script>
+    <script src="blocks/pidf_coefficients.js" type="text/javascript"></script>
+    <script src="blocks/position.js" type="text/javascript"></script>
+    <script src="blocks/predominant_color.js" type="text/javascript"></script>
+    <script src="blocks/project_util.js" type="text/javascript"></script>
+    <script src="blocks/ptz_control.js" type="text/javascript"></script>
+    <script src="blocks/quaternion.js" type="text/javascript"></script>
+    <script src="blocks/range.js" type="text/javascript"></script>
+    <script src="blocks/rev_blinkin_led_driver.js" type="text/javascript"></script>
+    <script src="blocks/rev_hub_orientation_on_robot.js" type="text/javascript"></script>
+    <script src="blocks/rumble_effect.js" type="text/javascript"></script>
+    <script src="blocks/servo.js" type="text/javascript"></script>
+    <script src="blocks/servo_controller.js" type="text/javascript"></script>
+    <script src="blocks/sort_order.js" type="text/javascript"></script>
+    <!-- sound_util.js is not needed -->
+    <script src="blocks/sparkfun_led_stick.js" type="text/javascript"></script>
+    <script src="blocks/sparkfun_otos.js" type="text/javascript"></script>
+    <script src="blocks/system.js" type="text/javascript"></script>
+    <script src="blocks/telemetry.js" type="text/javascript"></script>
+    <script src="blocks/temperature.js" type="text/javascript"></script>
+    <script src="blocks/toolbox_util.js" type="text/javascript"></script>
+    <script src="blocks/touch_sensor.js" type="text/javascript"></script>
+    <script src="blocks/ultrasonic_sensor.js" type="text/javascript"></script>
+    <script src="blocks/vars.js" type="text/javascript"></script>
+    <script src="blocks/vector_f.js" type="text/javascript"></script>
+    <script src="blocks/velocity.js" type="text/javascript"></script>
+    <script src="blocks/vision_portal.js" type="text/javascript"></script>
+    <script src="blocks/voltage_sensor.js" type="text/javascript"></script>
+    <script src="blocks/white_balance_control.js" type="text/javascript"></script>
+    <script src="blocks/yaw_pitch_roll_angles.js" type="text/javascript"></script>
+
+    <script src="blocks/obsolete/elapsed_time.js" type="text/javascript"></script>
+    <script src="blocks/obsolete/obsolete.js" type="text/javascript"></script>
+    <script src="blocks/obsolete/tensor_flow.js" type="text/javascript"></script>
+    <script src="blocks/obsolete/tfod.js" type="text/javascript"></script>
+    <script src="blocks/obsolete/tfod_base.js" type="text/javascript"></script>
+    <script src="blocks/obsolete/tfod_current_game.js" type="text/javascript"></script>
+    <script src="blocks/obsolete/tfod_custom_model.js" type="text/javascript"></script>
+    <script src="blocks/obsolete/tfod_recognition.js" type="text/javascript"></script>
+    <script src="blocks/obsolete/tfod_rover_ruckus.js" type="text/javascript"></script>
+    <script src="blocks/obsolete/tfod_sky_stone.js" type="text/javascript"></script>
+    <script src="blocks/obsolete/vuforia.js" type="text/javascript"></script>
+    <script src="blocks/obsolete/vuforia_current_game.js" type="text/javascript"></script>
+    <script src="blocks/obsolete/vuforia_localizer.js" type="text/javascript"></script>
+    <script src="blocks/obsolete/vuforia_localizer_parameters.js" type="text/javascript"></script>
+    <script src="blocks/obsolete/vuforia_relic_recovery.js" type="text/javascript"></script>
+    <script src="blocks/obsolete/vuforia_rover_ruckus.js" type="text/javascript"></script>
+    <script src="blocks/obsolete/vuforia_sky_stone.js" type="text/javascript"></script>
+    <script src="blocks/obsolete/vuforia_trackable.js" type="text/javascript"></script>
+    <script src="blocks/obsolete/vuforia_trackable_default_listener.js"
+            type="text/javascript"></script>
+    <script src="blocks/obsolete/vuforia_trackables.js" type="text/javascript"></script>
+
+    <title>FTC - My OpModes</title>
+</head>
+
+<body onload="initialize()">
+<table class="top" width="100%">
+    <tr>
+        <td class="blank_td" colspan="2"></td>
+    </tr>
+    <tr>
+        <td class="buttons_td" colspan="2">
+            <table width="100%">
+                <tr>
+                    <td>
+                        <button disabled="true" id="newProjectButton"
+                                onclick="newProjectButtonClicked()">Create New OpMode
+                        </button>
+                        <button id="uploadProjectButton" onclick="uploadProjectButtonClicked()">
+                            Upload OpMode
+                        </button>
+                        <button id="downloadOfflineBlocksButton"
+                                onclick="downloadOfflineBlocksButtonClicked()">Download Offline
+                            Blocks Editor
+                        </button>
+                        <button id="archiveButton"
+                                onclick="archiveButtonClicked()">Download All OpModes
+                        </button>
+                    </td>
+                    <td align="right">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="padding: 2px"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <button disabled="true" id="renameProjectButton"
+                                onclick="renameProjectButtonClicked()">Rename Selected OpMode
+                        </button>
+                        <button disabled="true" id="copyProjectButton"
+                                onclick="copyProjectButtonClicked()">Copy Selected OpMode
+                        </button>
+                        <button disabled="true" id="deleteProjectsButton"
+                                onclick="deleteProjectsButtonClicked()">Delete Selected OpModes
+                        </button>
+                        <button disabled="true" id="downloadProjectsButton"
+                                onclick="downloadProjectsButtonClicked()">Download Selected OpModes
+                        </button>
+                        <a id="download_link"></a>
+                    </td>
+                    <td align="right">
+                        <a class="help" href="FtcSounds.html">Sounds</a>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td class="blank_td" colspan="2"></td>
+    </tr>
+    <tr>
+        <td class="my_projects_td" colspan="2">My OpModes</td>
+    </tr>
+    <tr>
+        <td class="blank_td" colspan="2"></td>
+    </tr>
+</table>
+<div class="scrolling_table_container" id="projectsTableScroll">
+    <table id="projectsTable" width="100%">
+        <tr class="header_tr">
+            <td><input id="checkbox_all" onclick="projectCheckAllChanged()" type="checkbox"></td>
+            <td width="30%">
+                <div class="header_td" onclick="toggleSortByName()">OpMode Name<span
+                        id="sortByNameIndicator">&nbsp;</span></div>
+            </td>
+            <td width="40%">
+                <div class="header_td" onclick="toggleSortByDateModified()">Date Modified<span
+                        id="sortByDateModifiedIndicator">&nbsp;</span></div>
+            </td>
+            <td width="20%">
+                <div class="header_td">Enabled</div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div class="modal_dialog" id="newProjectNameDialog">
+    <div class="modal_dialog_container">
+        <div class="modal_dialog_content">
+            <center>
+                <h3 id="newProjectNameDialogTitle" style="margin-top: 0px"></h3><br>
+                OpMode Name:
+                <input id="newProjectName" style="width: 50ch" type="text"><br>
+                <div id="newProjectSamplesArea"><br><br>
+                    Sample:
+                    <select id="newProjectSamplesSelect" onchange="sampleSelected()"
+                            style="width: 50ch">
+                        <option value=""></option>
+                    </select><br>
+                </div>
+                <div class="error_message" id="newProjectNameError" style="width: 60ch"></div>
+                <br>
+                <table width="100%">
+                    <tr>
+                        <td align="center">
+                            <button onclick="cancelNewProjectNameDialog()">Cancel</button>
+                        </td>
+                        <td align="center">
+                            <button onclick="okNewProjectNameDialog()">OK</button>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        </div>
+    </div>
+</div>
+
+<div class="modal_dialog" id="uploadProjectDialog">
+    <div class="modal_dialog_container">
+        <div class="modal_dialog_content">
+            <center>
+                <h3 id="uploadProjectDialogTitle" style="margin-top: 0px"></h3><br>
+                <input accept=".blk" id="uploadProjectFileInput" type="file"><br>
+                <div class="error_message" id="uploadProjectError" style="width: 60ch"></div>
+                <br>
+                <table width="100%">
+                    <tr>
+                        <td align="center">
+                            <button onclick="cancelUploadProjectDialog()">Cancel</button>
+                        </td>
+                        <td align="center">
+                            <button id="uploadProjectOk" onclick="okUploadProjectDialog()">OK
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        </div>
+    </div>
+</div>
+
+<div class="modal_dialog" id="deleteProjectsDialog">
+    <div class="modal_dialog_container">
+        <div class="modal_dialog_content">
+            <center>
+                <h3 style="margin-top: 0px">Delete Selected OpModes</h3><br>
+                Are you sure you want to delete these OpModes?
+                <table id="deleteProjectsTable">
+                </table>
+                <table width="100%">
+                    <tr>
+                        <td align="center">
+                            <button onclick="noDeleteProjectsDialog()">No</button>
+                        </td>
+                        <td align="center">
+                            <button onclick="yesDeleteProjectsDialog()">Yes</button>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function initialize() {
+      initializeFtcBlocksProjects();
+    }
+
+    function downloadOfflineBlocksButtonClicked() {
+      getConfigurationName(function(configName, errorMessage) {
+        if (configName) {
+          var a = document.getElementById('download_link');
+          a.href = URI_FETCH_OFFLINE_BLOCKS_EDITOR;
+          a.download = configName + '_offline_blocks_editor.zip';
+          a.click();
+        } else {
+          alert(errorMessage);
+        }
+      });
+    }
+
+    function archiveButtonClicked() {
+      const date = new Date();
+      const dateString = date.getFullYear() + '_' +
+          (date.getMonth() + 1) + '_' +
+          date.getDate() + '_' +
+          date.getHours() + '_' +
+          date.getMinutes() + '_' +
+          date.getSeconds();
+      var a = document.getElementById('download_link');
+      a.href = URI_FETCH_BLOCKS_ARCHIVE;
+      a.download = "blocks_archive_" + dateString + '.zip';
+      a.click();
+    }
+</script>
+</body>
+</html>

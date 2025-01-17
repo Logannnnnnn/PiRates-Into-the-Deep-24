@@ -1,0 +1,12 @@
+<block type="visionPortalBuilder_setCamera">
+    <comment h="150" pinned="false" w="325">Set the camera to the specified builtin camera
+        direction.
+    </comment>
+    <field name="VISION_PORTAL_BUILDER" variabletype="VisionPortal.Builder">myVisionPortalBuilder
+    </field>
+    <value name="CAMERA">
+        <shadow type="navigation_typedEnum_builtinCameraDirection">
+            <field name="CAMERA_DIRECTION">BACK</field>
+        </shadow>
+    </value>
+</block>

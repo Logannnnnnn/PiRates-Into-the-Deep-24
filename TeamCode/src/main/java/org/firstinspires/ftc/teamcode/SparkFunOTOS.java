@@ -5,6 +5,7 @@
 */
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.hardware.I2cAddr;
 import com.qualcomm.robotcore.hardware.I2cDeviceSynch;
 import com.qualcomm.robotcore.hardware.I2cDeviceSynchDevice;
@@ -30,6 +31,7 @@ import java.util.Arrays;
         xmlTag = "SparkFunOTOS",
         description = "SparkFun Qwiic Optical Tracking Odometry Sensor"
 )
+@Disabled
 public class SparkFunOTOS extends I2cDeviceSynchDevice<I2cDeviceSynch> {
     // Default I2C addresses of the Qwiic OTOS
     public static final byte DEFAULT_ADDRESS = 0x17;

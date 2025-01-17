@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<!--
+  Author: lizlooney@google.com (Liz Looney)
+-->
+<head>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta charset="utf-8">
+
+    <link href="blocks/images.css" rel="stylesheet" type="text/css">
+    <link href="css/blocks_offline.css" rel="stylesheet" type="text/css">
+    <link href="css/blocks_common_less.css" rel="stylesheet" type="text/css">
+    <link href="css/blocks_common.css" rel="stylesheet" type="text/css">
+
+    <script src="js/split.min.js" type="text/javascript"></script>
+    <script src="blockly/blockly_compressed.js" type="text/javascript"></script>
+    <script src="blockly/msg/messages.js" type="text/javascript"></script>
+    <script src="blockly/blocks_compressed.js" type="text/javascript"></script>
+    <script src="blockly/javascript_compressed.js" type="text/javascript"></script>
+    <script src="ftcblockly/generators/javascript.js" type="text/javascript"></script>
+    <script src="ftcblockly/generators/ftcjava.js" type="text/javascript"></script>
+    <script src="ftcblockly/generators/ftcjava/lists.js" type="text/javascript"></script>
+    <script src="ftcblockly/generators/ftcjava/logic.js" type="text/javascript"></script>
+    <script src="ftcblockly/generators/ftcjava/loops.js" type="text/javascript"></script>
+    <script src="ftcblockly/generators/ftcjava/math.js" type="text/javascript"></script>
+    <script src="ftcblockly/generators/ftcjava/procedures.js" type="text/javascript"></script>
+    <script src="ftcblockly/generators/ftcjava/text.js" type="text/javascript"></script>
+    <script src="ftcblockly/generators/ftcjava/variables.js" type="text/javascript"></script>
+
+    <script src="js/FtcOfflineBlocks.js" type="text/javascript"></script>
+    <script src="blocks/FtcBlocks_common.js" type="text/javascript"></script>
+
+    <script src="blocks/acceleration.js" type="text/javascript"></script>
+    <script src="blocks/acceleration_sensor.js" type="text/javascript"></script>
+    <script src="blocks/analog_input.js" type="text/javascript"></script>
+    <script src="blocks/analog_output.js" type="text/javascript"></script>
+    <script src="blocks/android_accelerometer.js" type="text/javascript"></script>
+    <script src="blocks/android_gyroscope.js" type="text/javascript"></script>
+    <script src="blocks/android_orientation.js" type="text/javascript"></script>
+    <script src="blocks/android_sound_pool.js" type="text/javascript"></script>
+    <script src="blocks/android_text_to_speech.js" type="text/javascript"></script>
+    <script src="blocks/angular_velocity.js" type="text/javascript"></script>
+    <script src="blocks/april_tag.js" type="text/javascript"></script>
+    <script src="blocks/bno055imu.js" type="text/javascript"></script>
+    <script src="blocks/bno055imu_parameters.js" type="text/javascript"></script>
+    <script src="blocks/clipboard_util.js" type="text/javascript"></script>
+    <script src="blocks/color.js" type="text/javascript"></script>
+    <script src="blocks/color_blob_locator.js" type="text/javascript"></script>
+    <script src="blocks/color_range_sensor.js" type="text/javascript"></script>
+    <script src="blocks/color_sensor.js" type="text/javascript"></script>
+    <script src="blocks/compass_sensor.js" type="text/javascript"></script>
+    <script src="blocks/cr_servo.js" type="text/javascript"></script>
+    <script src="blocks/dbg_log.js" type="text/javascript"></script>
+    <script src="blocks/dc_motor.js" type="text/javascript"></script>
+    <script src="blocks/digital_channel.js" type="text/javascript"></script>
+    <script src="blocks/distance_sensor.js" type="text/javascript"></script>
+    <script src="blocks/elapsed_time2.js" type="text/javascript"></script>
+    <script src="blocks/exposure_control.js" type="text/javascript"></script>
+    <script src="blocks/focus_control.js" type="text/javascript"></script>
+    <script src="blocks/gain_control.js" type="text/javascript"></script>
+    <script src="blocks/gamepad.js" type="text/javascript"></script>
+    <script src="blocks/gyro_sensor.js" type="text/javascript"></script>
+    <script src="blocks/hardware_util.js" type="text/javascript"></script>
+    <script src="blocks/husky_lens.js" type="text/javascript"></script>
+    <script src="blocks/imu.js" type="text/javascript"></script>
+    <script src="blocks/imu_parameters.js" type="text/javascript"></script>
+    <script src="blocks/ir_seeker_sensor.js" type="text/javascript"></script>
+    <script src="blocks/led.js" type="text/javascript"></script>
+    <script src="blocks/led_effect.js" type="text/javascript"></script>
+    <script src="blocks/light_sensor.js" type="text/javascript"></script>
+    <script src="blocks/limelight_3a.js" type="text/javascript"></script>
+    <script src="blocks/linear_op_mode.js" type="text/javascript"></script>
+    <script src="blocks/locale.js" type="text/javascript"></script>
+    <script src="blocks/magnetic_flux.js" type="text/javascript"></script>
+    <script src="blocks/matrix_f.js" type="text/javascript"></script>
+    <script src="blocks/max_sonar_i2cxl.js" type="text/javascript"></script>
+    <script src="blocks/misc.js" type="text/javascript"></script>
+    <script src="blocks/mr_i2c_compass_sensor.js" type="text/javascript"></script>
+    <script src="blocks/mr_i2c_range_sensor.js" type="text/javascript"></script>
+    <script src="blocks/navigation.js" type="text/javascript"></script>
+    <script src="blocks/octoquad.js" type="text/javascript"></script>
+    <script src="blocks/open_gl_matrix.js" type="text/javascript"></script>
+    <script src="blocks/opencv.js" type="text/javascript"></script>
+    <script src="blocks/optical_distance_sensor.js" type="text/javascript"></script>
+    <script src="blocks/orientation.js" type="text/javascript"></script>
+    <script src="blocks/pidf_coefficients.js" type="text/javascript"></script>
+    <script src="blocks/position.js" type="text/javascript"></script>
+    <script src="blocks/predominant_color.js" type="text/javascript"></script>
+    <script src="blocks/project_util.js" type="text/javascript"></script>
+    <script src="blocks/ptz_control.js" type="text/javascript"></script>
+    <script src="blocks/quaternion.js" type="text/javascript"></script>
+    <script src="blocks/range.js" type="text/javascript"></script>
+    <script src="blocks/rev_blinkin_led_driver.js" type="text/javascript"></script>
+    <script src="blocks/rev_hub_orientation_on_robot.js" type="text/javascript"></script>
+    <script src="blocks/rumble_effect.js" type="text/javascript"></script>
+    <script src="blocks/servo.js" type="text/javascript"></script>
+    <script src="blocks/servo_controller.js" type="text/javascript"></script>
+    <script src="blocks/sort_order.js" type="text/javascript"></script>
+    <!-- sound_util.js is not needed -->
+    <script src="blocks/sparkfun_led_stick.js" type="text/javascript"></script>
+    <script src="blocks/sparkfun_otos.js" type="text/javascript"></script>
+    <script src="blocks/system.js" type="text/javascript"></script>
+    <script src="blocks/telemetry.js" type="text/javascript"></script>
+    <script src="blocks/temperature.js" type="text/javascript"></script>
+    <script src="blocks/toolbox_util.js" type="text/javascript"></script>
+    <script src="blocks/touch_sensor.js" type="text/javascript"></script>
+    <script src="blocks/ultrasonic_sensor.js" type="text/javascript"></script>
+    <script src="blocks/vars.js" type="text/javascript"></script>
+    <script src="blocks/vector_f.js" type="text/javascript"></script>
+    <script src="blocks/velocity.js" type="text/javascript"></script>
+    <script src="blocks/vision_portal.js" type="text/javascript"></script>
+    <script src="blocks/voltage_sensor.js" type="text/javascript"></script>
+    <script src="blocks/white_balance_control.js" type="text/javascript"></script>
+    <script src="blocks/yaw_pitch_roll_angles.js" type="text/javascript"></script>
+
+    <script src="blocks/obsolete/elapsed_time.js" type="text/javascript"></script>
+    <script src="blocks/obsolete/obsolete.js" type="text/javascript"></script>
+    <script src="blocks/obsolete/tensor_flow.js" type="text/javascript"></script>
+    <script src="blocks/obsolete/tfod.js" type="text/javascript"></script>
+    <script src="blocks/obsolete/tfod_base.js" type="text/javascript"></script>
+    <script src="blocks/obsolete/tfod_current_game.js" type="text/javascript"></script>
+    <script src="blocks/obsolete/tfod_custom_model.js" type="text/javascript"></script>
+    <script src="blocks/obsolete/tfod_recognition.js" type="text/javascript"></script>
+    <script src="blocks/obsolete/tfod_rover_ruckus.js" type="text/javascript"></script>
+    <script src="blocks/obsolete/tfod_sky_stone.js" type="text/javascript"></script>
+    <script src="blocks/obsolete/vuforia.js" type="text/javascript"></script>
+    <script src="blocks/obsolete/vuforia_current_game.js" type="text/javascript"></script>
+    <script src="blocks/obsolete/vuforia_localizer.js" type="text/javascript"></script>
+    <script src="blocks/obsolete/vuforia_localizer_parameters.js" type="text/javascript"></script>
+    <script src="blocks/obsolete/vuforia_relic_recovery.js" type="text/javascript"></script>
+    <script src="blocks/obsolete/vuforia_rover_ruckus.js" type="text/javascript"></script>
+    <script src="blocks/obsolete/vuforia_sky_stone.js" type="text/javascript"></script>
+    <script src="blocks/obsolete/vuforia_trackable.js" type="text/javascript"></script>
+    <script src="blocks/obsolete/vuforia_trackable_default_listener.js"
+            type="text/javascript"></script>
+    <script src="blocks/obsolete/vuforia_trackables.js" type="text/javascript"></script>
+
+    <title>FTC</title>
+</head>
+<body onload="initializeFtcBlocks()">
+<div class="vertical_area" style="height:100%; padding: 0;">
+    <table class="top" width="100%">
+        <tr>
+            <td class="blank_td" colspan="2"></td>
+        </tr>
+        <tr>
+            <td class="buttons_td" colspan="2">
+                <table width="100%">
+                    <tr>
+                        <td>
+                            <button onclick="saveButtonClicked()">Save OpMode</button>
+                            <button onclick="exportJavaButtonClicked()">Download Java</button>
+                            <button onclick="downloadButtonClicked()">Download OpMode</button>
+                            <button disabled="true" id="downloadImageButton" onclick="downloadImageButtonClicked()"
+                                    style="display: none">Download Image of Blocks
+                            </button>
+                            <a id="download_link"></a>
+                            <span id="saveSuccess" style="display: none">Save completed successfully.</span>
+                            <span id="saveFailure" style="display: none"></span>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td class="blank_td" colspan="2"></td>
+        </tr>
+        <tr class="project_row_tr">
+            <td class="project_row_td">
+                OpMode Name:&nbsp;<span class="not_bold" id="project_name"></span>
+                &nbsp;
+                <select class="not_bold" id="project_flavor" onchange="projectFlavorChanged()">
+                    <option value="TELEOP">TeleOp</option>
+                    <option value="AUTONOMOUS">Autonomous</option>
+                </select>
+                &nbsp;
+                Group:&nbsp;<input class="not_bold" id="project_group" oninput="projectGroupChanged()"
+                                   type="text">
+                &nbsp;
+                <input class="project_row_checkbox" id="project_enabled" onclick="projectEnabledChanged()"
+                       type="checkbox">&nbsp;Enabled
+                &nbsp;
+                &nbsp;
+                <span id="project_autoTransition_label"
+                      style="display: none;">Preselect TeleOp:</span>
+                <select class="not_bold" id="project_autoTransition"
+                        onchange="projectAutoTransitionChanged()"
+                        style="width: 150px; display: none;">
+                </select>
+            </td>
+            <td align="right">
+                <input class="project_row_checkbox" id="show_java" onclick="showJavaChanged()"
+                       type="checkbox">&nbsp;Show Java&nbsp;&nbsp;
+            </td>
+        </tr>
+    </table>
+
+    <div class="parent_area horizontal_area fill_area no_min_height" id="parentArea"
+         style="visibility: hidden;">
+        <div class="vertical_area" id="blocksAndBannerArea">
+            <div class="banner" id="banner" style="display: none;">
+                <span class="banner_text" id="bannerText"></span>
+                <button class="btn btn-default btn-xs" id="bannerBtn" type="button">Button</button>
+            </div>
+            <div class="fill_area" id='blocklyArea'></div>
+        </div>
+        <div class="dragBar" draggable="true" id="dragBar"></div>
+        <div class="vertical_area no_min_width" id="javaArea">
+            <div id="javaCodeHeading">Java Code:</div>
+            <div class="fill_area content_border" id="javaContentContainer">
+                <pre id="javaContent"></pre>
+            </div>
+        </div>
+    </div>
+
+    <div class="content_border" id="blocklyDiv" style="position: absolute;"></div>
+
+    <xml id="toolbox" style="display: none">
+        <category name="Miscellaneous">
+        </category>
+    </xml>
+
+    <div class="modal_dialog" id="saveWithWarningsDialog">
+        <div class="modal_dialog_container">
+            <div class="modal_dialog_content">
+                <center>
+                    <h3 style="margin-top: 0px">Save OpMode</h3><br>
+                    <div id="saveWithWarningsMessage"></div>
+                    <br>
+                    Are you sure you want to save now?<br><br>
+                    <table width="100%">
+                        <tr>
+                            <td align="center">
+                                <button onclick="noSaveWithWarningsDialog()">No</button>
+                            </td>
+                            <td align="center">
+                                <button onclick="yesSaveWithWarningsDialog()">Yes</button>
+                            </td>
+                        </tr>
+                    </table>
+                </center>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    function exportJavaButtonClicked() {
+      var javaCode = generateJavaCode();
+      if (javaCode) {
+        // Download the java file.
+        var a = document.getElementById('download_link');
+        a.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(javaCode);
+        a.download = currentClassName + '.java';
+        a.click();
+      } else {
+        alert('Unable to download Java. Sorry about that!');
+      }
+    }
+
+</script>
+</body>
+</html>

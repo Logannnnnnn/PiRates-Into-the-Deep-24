@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta charset="utf-8">
+    <link href="favicon.ico" rel="shortcut icon" type="image/ico"/>
+
+    <link href="css/frame_offline_less.css" rel="stylesheet" type="text/css">
+    <title>FTC - Offline Blocks Editor</title>
+</head>
+
+<body>
+
+<div class="navbar-container" id="navbarContainer">
+    <table class="navbar" id="navbar" width="100%">
+        <tr>
+            <td class="navbar-home" width="104px">
+                <table>
+                    <tr>
+                        <td><span class="wordmarkfirstword">FIRST</span><span class="trademark">&reg;</span>
+                        </td>
+                        <td class="brandphrase">offline<br>blocks<br>editor</td>
+                    </tr>
+                </table>
+            </td>
+            <td class="navbar-item-active" width="57px">
+                <a class="navbar-item-active-link" href="javascript:void(0);"
+                   onclick="navToBlocksProjects()">Blocks</a>
+            </td>
+            <td class="navbar-item-disabled" width="85px">
+                <a class="navbar-item-disabled-link" href="javascript:void(0);" onclick="noop()">OnBotJava</a>
+            </td>
+            <td class="navbar-item-disabled">
+                <a class="navbar-item-disabled-link" href="javascript:void(0);" onclick="noop()">Manage</a>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div id="theIFrameContainer" style="overflow-y: hidden">
+    <iframe class="theiframe" id="theIFrame" src="FtcOfflineBlocksProjects.html"></iframe>
+</div>
+
+<script type="text/javascript">
+    function resizeIframe() {
+      // Expand the height of the iframe from to occupy the entire area of the window below the nav bar
+      var navbar = document.getElementById('navbarContainer');
+      var parentElement = navbar.parentElement;
+      var width = navbar.offsetWidth;
+      var height = parentElement.clientHeight - navbar.offsetHeight;
+      var theIFrameContainer = document.getElementById("theIFrameContainer");
+      theIFrameContainer.style.width = width + 'px';
+      theIFrameContainer.style.height = height + 'px';
+      var theIFrame = document.getElementById("theIFrame");
+      theIFrame.style.width = width + 'px';
+      theIFrame.style.height = height + 'px';
+    }
+
+    function navToBlocksProjects() {
+      var theIFrame = document.getElementById("theIFrame");
+      theIFrame.src = "FtcOfflineBlocksProjects.html";
+    }
+
+    function noop() {
+    }
+
+    window.addEventListener('resize', resizeIframe, false);
+    resizeIframe();
+</script>
+
+</body>
+</html>

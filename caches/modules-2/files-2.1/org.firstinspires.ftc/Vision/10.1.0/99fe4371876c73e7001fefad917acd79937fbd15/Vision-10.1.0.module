@@ -1,0 +1,104 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "org.firstinspires.ftc",
+    "module": "Vision",
+    "version": "10.1.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.4"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.openftc",
+          "module": "easyopencv",
+          "version": {
+            "requires": "1.7.3"
+          }
+        },
+        {
+          "group": "org.openftc",
+          "module": "apriltag",
+          "version": {
+            "requires": "2.1.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "Vision-10.1.0.aar",
+          "url": "Vision-10.1.0.aar",
+          "size": 82194,
+          "sha512": "2f87ca15bd9d9b028e832ab9cb6313fb92e9454fdb6dd13e3e35de9f8947a4b9cc2c09977f2b54c9cd30890d7004df594d6b6b440b8beae33ccaf3a9bb0bc262",
+          "sha256": "579307696554bcedba9b646ded8aa40df654fb45825ce9d433645139fda17669",
+          "sha1": "53d80ca89bdeb2223987b3b08283cc009b850740",
+          "md5": "14787e469460e376f87161250a3144bb"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "androidx.annotation",
+          "module": "annotation",
+          "version": {
+            "requires": "1.2.0"
+          }
+        },
+        {
+          "group": "org.firstinspires.ftc",
+          "module": "RobotCore",
+          "version": {
+            "requires": "10.1.0"
+          }
+        },
+        {
+          "group": "org.openftc",
+          "module": "easyopencv",
+          "version": {
+            "requires": "1.7.3"
+          }
+        },
+        {
+          "group": "org.openftc",
+          "module": "apriltag",
+          "version": {
+            "requires": "2.1.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "Vision-10.1.0.aar",
+          "url": "Vision-10.1.0.aar",
+          "size": 82194,
+          "sha512": "2f87ca15bd9d9b028e832ab9cb6313fb92e9454fdb6dd13e3e35de9f8947a4b9cc2c09977f2b54c9cd30890d7004df594d6b6b440b8beae33ccaf3a9bb0bc262",
+          "sha256": "579307696554bcedba9b646ded8aa40df654fb45825ce9d433645139fda17669",
+          "sha1": "53d80ca89bdeb2223987b3b08283cc009b850740",
+          "md5": "14787e469460e376f87161250a3144bb"
+        }
+      ]
+    }
+  ]
+}

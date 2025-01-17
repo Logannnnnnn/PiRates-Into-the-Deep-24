@@ -3,7 +3,6 @@ package org.firstinspires.ftc.teamcode.auto;
 import android.annotation.SuppressLint;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
@@ -13,7 +12,6 @@ import org.firstinspires.ftc.vision.VisionPortal;
 
 
 @Autonomous(name = "autoPark", group = "COMP")
-@Disabled
 public class autoPark extends LinearOpMode {
 
     // Calculate the COUNTS_PER_INCH for your specific drive train.

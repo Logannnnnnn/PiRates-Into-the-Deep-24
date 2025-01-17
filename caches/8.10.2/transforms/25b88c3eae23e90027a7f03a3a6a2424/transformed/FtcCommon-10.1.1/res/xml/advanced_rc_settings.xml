@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/titleAdvancedRCSettings2">
+
+        <PreferenceScreen
+            android:key="@string/pref_launch_wifi_channel_edit"
+            android:summary="@string/prefedit_edit_wifi_channel_summary"
+            android:title="@string/prefedit_change_wifi_channel">
+            <intent
+                android:targetClass="com.qualcomm.ftccommon.FtcWifiDirectChannelSelectorActivity"
+                android:targetPackage="@string/packageName" />
+        </PreferenceScreen>
+
+        <PreferenceScreen
+            android:key="@string/pref_launch_wifi_remembered_groups_edit"
+            android:summary="@string/prefedit_clear_remembered_groups_summary"
+            android:title="@string/prefedit_remembered_groups">
+            <intent
+                android:targetClass="com.qualcomm.ftccommon.FtcWifiDirectRememberedGroupsActivity"
+                android:targetPackage="@string/packageName" />
+        </PreferenceScreen>
+
+        <PreferenceScreen
+            android:key="@string/pref_launch_lynx_firmware_update"
+            android:summary="@string/summaryLynxFirmwareUpdate"
+            android:title="@string/titleLynxFirmwareUpdate">
+            <intent
+                android:targetClass="com.qualcomm.ftccommon.FtcLynxFirmwareUpdateActivity"
+                android:targetPackage="@string/packageName" />
+        </PreferenceScreen>
+
+        <PreferenceScreen
+            android:key="@string/pref_launch_lynx_address_update"
+            android:summary="@string/summaryLynxAddressUpdate"
+            android:title="@string/titleLynxModuleAddressUpdate">
+            <intent
+                android:targetClass="com.qualcomm.ftccommon.FtcLynxModuleAddressUpdateActivity"
+                android:targetPackage="@string/packageName" />
+        </PreferenceScreen>
+
+        <SwitchPreference
+            android:defaultValue="true"
+            android:summary="@string/summaryWarnAboutObsoleteSoftware"
+            android:key="@string/pref_warn_about_obsolete_software"
+            android:title="@string/titleWarnAboutObsoleteSoftware" />
+
+        <SwitchPreference
+            android:defaultValue="true"
+            android:summary="@string/summaryWarnAboutMismatchedAppVersions"
+            android:key="@string/pref_warn_about_mismatched_app_versions"
+            android:title="@string/titleWarnAboutMismatchedAppVersions" />
+
+        <SwitchPreference
+            android:defaultValue="true"
+            android:summary="@string/summaryWarnAbout2_4GhzBand"
+            android:key="@string/pref_warn_about_2_4_ghz_band"
+            android:title="@string/titleWarnAbout2_4GhzBand" />
+
+        <SwitchPreference
+            android:defaultValue="true"
+            android:summary="@string/summaryWarnAboutIncorrectClocks"
+            android:key="@string/pref_warn_about_incorrect_clocks"
+            android:title="@string/titleWarnAboutIncorrectClocks" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
